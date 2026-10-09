@@ -20,4 +20,4 @@ while (not var.est_mort()) and (not var2.est_mort()):
     combat(var,var2)
     #print(f"{var.nom} à {var.vie}")
     #print(f"{var2.nom} à {var2.vie}")
-print(tour)
+print(f"Fini en {tour} tours")
