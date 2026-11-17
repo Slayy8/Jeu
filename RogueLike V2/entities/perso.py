@@ -1,5 +1,4 @@
 from random import randint
-from objet import objait
 
 reward = [5,2,15,3]
 class entitie:
@@ -20,7 +19,7 @@ class perso(entitie):
         self.inv = []
 
     def attaque(self,cible):            #self attaque cible  cible pouvant être un objet ou un perso
-        cible.vie -= (self.atk/cible.dfn)+2
+        cible.vie -= (max((self.atk - cible.dfn),-1)+2)
         cible.vie = round(cible.vie, 2)
         if cible.est_mort():
             cible.vie = 0
@@ -47,8 +46,7 @@ class perso(entitie):
             self.inv.append("Armure")
             print(f"{self.nom} a obtenu une armure ! Il gagne {reward[n]} de défense")
         else:
-            potion = objait("Potion",0)
-            self.inv.append(potion)
+            self.inv.append("potion")
             print(f"{self.nom} a obtenu une potion ! Il peut l'utiliser à n'importe quel moment pour se soigner.")
 
     def __repr__(self):                 #Pour un print(self) lisible
@@ -69,21 +67,11 @@ class gobelin(entitie):
 
 
 def soigner(x):
-    if potion in x.inv:
-        for i in x.inv:
-            if potion == x.inv:
-                x.vie += x.inv[i].vie
+    for i in x.inv:
+        if "potion" == i:
+            x.vie += 20
 
 var = perso("Leo")
 print(var)
 var2 = gobelin("Mouir")
 print(var2)
-var2.est_mort()
-while not var2.est_mort():
-    var.attaque(var2)
-    print(var2.vie)
-
-print(var.inv)
-soigner(var)
-print(var.vie)
-print(var.vieM)

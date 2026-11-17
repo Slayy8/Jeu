@@ -1,7 +1,7 @@
 from random import randint
 from perso import *
 
-class objait:
+class objet:
     def __init__(self,nom,mvt):
         self.nom = nom
         self.vie = randint(6,23)

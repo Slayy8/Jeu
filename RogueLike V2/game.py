@@ -1,9 +1,9 @@
 from entities.perso import *
-#from entities.objet import *
+#from entities.objait import *
 
 var = perso("Leo")
 #print(var)
-var2 = perso("Lea")
+var2 = perso("Mouir")
 #print(var)
 
 tour = 0
@@ -18,6 +18,8 @@ def combat(p1,p2):
 while (not var.est_mort()) and (not var2.est_mort()):
     tour += 1
     combat(var,var2)
-    #print(f"{var.nom} à {var.vie}")
-    #print(f"{var2.nom} à {var2.vie}")
+    print(f"{var.nom} à {var.vie}")
+    print(f"{var2.nom} à {var2.vie}")
+    if (var.vie>=106) or (var2.vie>=106):
+        break
 print(f"Fini en {tour} tours.")
